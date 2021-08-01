@@ -30,7 +30,8 @@ def on_press(widget, event, *a):
 def grab(widget, *a):
     dwin = widget.get_window()
     pointer = display.get_default_seat().get_pointer()
-    status = pointer.grab(dwin, Gdk.GrabOwnership.NONE, True, Gdk.EventMask.BUTTON_PRESS_MASK, Gdk.Cursor.new_from_name(display,'crosshair'), Gdk.CURRENT_TIME)
+    status = pointer.grab(dwin, Gdk.GrabOwnership.NONE, True, Gdk.EventMask.BUTTON_PRESS_MASK, Gdk.Cursor.new_from_name(display,'cell'), Gdk.CURRENT_TIME)
+
 
 def ungrab(widget, *a):
     display.get_default_seat().ungrab()
@@ -55,7 +56,7 @@ mainwin.connect("leave-notify-event", grab)
 
 mainwin.show_all()
 mainwin.set_keep_above(True)
-mainwin.connect("button_press_event",on_press)
+mainwin.connect("button_press_event", on_press)
 
 
 Gtk.main()
